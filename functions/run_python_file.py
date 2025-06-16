@@ -22,16 +22,16 @@ def run_python_file(working_directory, file_path, args=None):
             timeout=30,
             cwd=abs_working_dir,
         )
-        output = []
+        output = ""
         if result.stdout:
-            output.append(f"STDOUT:\n{result.stdout}")
+            output += result.stdout
         if result.stderr:
-            output.append(f"STDERR:\n{result.stderr}")
+            output += result.stderr
 
         if result.returncode != 0:
-            output.append(f"Process exited with code {result.returncode}")
+            output += f"Process exited with code {result.returncode}"
 
-        return "\n".join(output) if output else "No output produced."
+        return output.strip() if output else "No output produced."
     except Exception as e:
         return f"Error: executing Python file: {e}"
 

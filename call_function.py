@@ -22,8 +22,8 @@ def call_function(function_call_part, verbose=False):
     if verbose:
         print(f"Calling function: {function_name}({function_call_part.args})")
     else:
-        print(f" - Calling function: {function_name}")   
-    
+        print(f"Calling function: {function_name} with args: {args}")
+      
     result = None
     
     if function_name == "get_files_info":
